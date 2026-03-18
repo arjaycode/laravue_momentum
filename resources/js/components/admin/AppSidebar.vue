@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
-import { BookOpen, FolderGit2, LayoutGrid, ListChecks,CalendarCheck } from 'lucide-vue-next';
+import { 
+    LayoutGrid, 
+    CalendarCheck,
+    Users,
+    Goal
+} from 'lucide-vue-next';
 import AppLogo from '@/components/AppLogo.vue';
 import NavFooter from '@/components/NavFooter.vue';
 import NavMain from '@/components/NavMain.vue';
@@ -26,12 +31,12 @@ const mainNavItems: NavItem[] = [
     {
         title: 'Users',
         href: '',
-        icon: ListChecks,
+        icon: Users,
     },
     {
         title: 'Habits Management',
         href: '',
-        icon: CalendarCheck,
+        icon: Goal,
     },
     {
         title: 'Habits Categories',
