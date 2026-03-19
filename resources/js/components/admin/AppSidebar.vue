@@ -31,7 +31,7 @@ const mainNavItems: NavItem[] = [
         icon: LayoutGrid,
     },
     {
-        title: 'Users',
+        title: 'Users Management',
         href: '',
         icon: Users,
     },
@@ -41,7 +41,7 @@ const mainNavItems: NavItem[] = [
         icon: Goal,
     },
     {
-        title: 'Habits Categories',
+        title: 'Habits Category Management',
         href: '',
         icon: ChartColumnStacked,
     },
