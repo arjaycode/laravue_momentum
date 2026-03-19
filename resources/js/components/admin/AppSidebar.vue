@@ -4,7 +4,9 @@ import {
     LayoutGrid, 
     CalendarCheck,
     Users,
-    Goal
+    Goal,
+    ChartColumnStacked,
+    ScrollText
 } from 'lucide-vue-next';
 import AppLogo from '@/components/AppLogo.vue';
 import NavFooter from '@/components/NavFooter.vue';
@@ -41,12 +43,12 @@ const mainNavItems: NavItem[] = [
     {
         title: 'Habits Categories',
         href: '',
-        icon: CalendarCheck,
+        icon: ChartColumnStacked,
     },
     {
         title: 'Notes',
         href: '',
-        icon: CalendarCheck,
+        icon: ScrollText,
     },
 ];
 
