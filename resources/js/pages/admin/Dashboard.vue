@@ -4,7 +4,8 @@ import PlaceholderPattern from '@/components/PlaceholderPattern.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import type { BreadcrumbItem } from '@/types';
 import CounterCard from '@/components/CounterCard.vue';
-import { Flag, Goal, Scroll, ScrollText, Users, UserX, } from 'lucide-vue-next';
+import { Flag, Goal, ScrollText, Users, UserX, } from 'lucide-vue-next';
+import MyChart from '@/components/MyChart.vue';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -45,7 +46,7 @@ const breadcrumbs: BreadcrumbItem[] = [
             <div class="grid auto-rows-min gap-4 md:grid-cols-2">
                 <div
                     class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                    <PlaceholderPattern />
+                    <MyChart />
                 </div>
                 <div
                     class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
