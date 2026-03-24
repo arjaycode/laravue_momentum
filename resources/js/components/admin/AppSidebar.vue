@@ -22,6 +22,7 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes/admin';
+import { index as UserManagement } from '@/routes/admin/userManagement';
 import type { NavItem } from '@/types';
 
 const mainNavItems: NavItem[] = [
@@ -32,7 +33,7 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Users Management',
-        href: '',
+        href: UserManagement(),
         icon: Users,
     },
     {

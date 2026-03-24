@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { Head, router } from '@inertiajs/vue3';
-import PlaceholderPattern from '@/components/PlaceholderPattern.vue';
+import { Head} from '@inertiajs/vue3';
 import AppLayout from '@/layouts/AppLayout.vue';
 import type { BreadcrumbItem } from '@/types';
 import CounterCard from '@/components/CounterCard.vue';
@@ -17,6 +16,17 @@ const breadcrumbs: BreadcrumbItem[] = [
         href: 'admin/dashboard',
     },
 ];
+
+interface Props {
+    total_users: string | number;
+    total_inactive: string | number;
+    total_banned: string | number;
+    recent_users: Object[];
+}
+
+const props = defineProps<Props>();
+
+console.log(props.recent_users);
 </script>
 
 <template>
@@ -36,15 +46,15 @@ const breadcrumbs: BreadcrumbItem[] = [
                 </div>
                 <div
                     class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                    <CounterCard :title="'Total Users'" :icon="Users" :count="151" />
+                    <CounterCard :title="'Total Users'" :icon="Users" :count="total_users" />
                 </div>
                 <div
                     class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                    <CounterCard :title="'Inactive Users'" :icon="UserX" :count="11" />
+                    <CounterCard :title="'Inactive Users'" :icon="UserX" :count="total_inactive" />
                 </div>
                 <div
                     class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                    <CounterCard :title="'Banned Users'" :icon="Flag" :count="15" />
+                    <CounterCard :title="'Banned Users'" :icon="Flag" :count="total_banned" />
                 </div>
             </div>
             <div class="grid auto-rows-min gap-4 md:grid-cols-2">
@@ -64,7 +74,7 @@ const breadcrumbs: BreadcrumbItem[] = [
                 </div>
                 <div
                     class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                    <RecentUsers />
+                    <RecentUsers :recent_users />
                 </div>
                 <div
                     class="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">

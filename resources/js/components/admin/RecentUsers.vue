@@ -7,54 +7,61 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 
+interface Props {
+    recent_users: Object[];
+}
+
+const props = defineProps<Props>();
+
+console.log(props.recent_users);
 // Dummy data based on your screenshot
-const recentUsers = ref([
-  {
-    id: 1,
-    name: 'Arjay Aranas',
-    initials: 'AA',
-    joined: 'Joined 6 days ago',
-    isOnline: true,
-    avatarBg: 'bg-[#ffdca8]', 
-    avatarText: 'text-[#1a1a1a]',
-  },
-  {
-    id: 2,
-    name: 'Sarah Jenkins',
-    initials: 'SJ',
-    joined: 'Joined 1 week ago',
-    isOnline: false,
-    avatarBg: 'bg-blue-200',
-    avatarText: 'text-blue-900',
-  },
-  {
-    id: 3,
-    name: 'Michael Chen',
-    initials: 'MC',
-    joined: 'Joined 2 weeks ago',
-    isOnline: true,
-    avatarBg: 'bg-emerald-200',
-    avatarText: 'text-emerald-900',
-  },
-  {
-    id: 4,
-    name: 'Elena Rodriguez',
-    initials: 'ER',
-    joined: 'Joined 1 month ago',
-    isOnline: false,
-    avatarBg: 'bg-purple-200',
-    avatarText: 'text-purple-900',
-  },
-  {
-    id: 5,
-    name: 'David Kim',
-    initials: 'DK',
-    joined: 'Joined 1 month ago',
-    isOnline: true,
-    avatarBg: 'bg-rose-200',
-    avatarText: 'text-rose-900',
-  }
-])
+// const recentUsers = ref([
+//   {
+//     id: 1,
+//     name: 'Arjay Aranas',
+//     initials: 'AA',
+//     joined: 'Joined 6 days ago',
+//     isOnline: true,
+//     avatarBg: 'bg-[#ffdca8]', 
+//     avatarText: 'text-[#1a1a1a]',
+//   },
+//   {
+//     id: 2,
+//     name: 'Sarah Jenkins',
+//     initials: 'SJ',
+//     joined: 'Joined 1 week ago',
+//     isOnline: false,
+//     avatarBg: 'bg-blue-200',
+//     avatarText: 'text-blue-900',
+//   },
+//   {
+//     id: 3,
+//     name: 'Michael Chen',
+//     initials: 'MC',
+//     joined: 'Joined 2 weeks ago',
+//     isOnline: true,
+//     avatarBg: 'bg-emerald-200',
+//     avatarText: 'text-emerald-900',
+//   },
+//   {
+//     id: 4,
+//     name: 'Elena Rodriguez',
+//     initials: 'ER',
+//     joined: 'Joined 1 month ago',
+//     isOnline: false,
+//     avatarBg: 'bg-purple-200',
+//     avatarText: 'text-purple-900',
+//   },
+//   {
+//     id: 5,
+//     name: 'David Kim',
+//     initials: 'DK',
+//     joined: 'Joined 1 month ago',
+//     isOnline: true,
+//     avatarBg: 'bg-rose-200',
+//     avatarText: 'text-rose-900',
+//   }
+// ])
 </script>
 
 <template>
@@ -70,8 +77,8 @@ const recentUsers = ref([
       <ul class="flex flex-col gap-5">
         
         <li 
-          v-for="user in recentUsers" 
-          :key="user.id" 
+          v-for="user, index in recent_users" 
+          :key="index" 
           class="flex items-center justify-between"
         >
           <div class="flex items-center gap-4">
@@ -80,7 +87,7 @@ const recentUsers = ref([
               class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-medium"
               :class="[user.avatarBg, user.avatarText]"
             >
-              {{ user.initials }}
+              {{ user.name.split()[0][0]}}
             </div>
             
             <div class="flex flex-col gap-0.5">
@@ -88,7 +95,7 @@ const recentUsers = ref([
                 {{ user.name }}
               </span>
               <span class="text-sm leading-none text-muted-foreground">
-                {{ user.joined }}
+                {{ user.created_at }}
               </span>
             </div>
 
